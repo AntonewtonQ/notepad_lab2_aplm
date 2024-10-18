@@ -1,6 +1,6 @@
 Aqui está um modelo de README que você pode usar para o seu projeto de bloco de notas simples no GitHub. Sinta-se à vontade para personalizá-lo conforme necessário.
 
-```markdown
+
 # Bloco de Notas Simples
 
 ## Descrição
@@ -40,9 +40,6 @@ Para executar este projeto, siga os passos abaixo:
 
 ## Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
-## Licença
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Contato
 Para mais informações, entre em contato através do e-mail: antonewtonquima@gmail.com
