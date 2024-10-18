@@ -1,82 +1,48 @@
+Aqui está um modelo de README que você pode usar para o seu projeto de bloco de notas simples no GitHub. Sinta-se à vontade para personalizá-lo conforme necessário.
 
-# Ciclo de Vida das Atividades no Android
+```markdown
+# Bloco de Notas Simples
 
-Este projeto demonstra o ciclo de vida das atividades em uma aplicação Android, incluindo os estados `onCreate`, `onStart`, `onResume`, `onPause`, `onStop`, `onRestart` e `onDestroy`. Os estados são registrados pelo `StatusTracker`, e a classe `Utils` exibe essas mudanças de estado na interface gráfica.
+## Descrição
+Esta é uma aplicação de bloco de notas simples desenvolvida para Android. A aplicação permite que os usuários criem, visualizem e gerenciem notas de forma intuitiva. É um projeto ideal para iniciantes que desejam aprender sobre desenvolvimento Android.
 
-## Sequência de Mensagens
+## Funcionalidades
+- **Criar Notas**: O usuário pode criar novas notas, inserindo um título e o conteúdo.
+- **Visualizar Notas**: As notas criadas são exibidas em uma lista, e o usuário pode selecionar qualquer nota para visualizar seu conteúdo.
+- **Cancelar Notas**: O usuário pode cancelar a criação de uma nota se decidir não salvar.
 
-### a) Início da Atividade
+## Tecnologias Utilizadas
+- Android Studio
+- Java
+- XML (para layout)
 
-```plaintext
-2024-10-16 10:14:19.081 19198-19198 MainActivity            ao.co.isptec.aplm.simpleactivity     I  onStart chamado
-2024-10-16 10:14:19.136 19198-19198 MainActivity            ao.co.isptec.aplm.simpleactivity     I  onResume chamado
-```
+## Estrutura do Projeto
+- **MainActivity**: Atividade principal que exibe a lista de notas e um botão para criar uma nova nota.
+- **CreateNoteActivity**: Atividade que permite ao usuário inserir o título e o conteúdo da nota.
+- **ReadNoteActivity**: Atividade que exibe o título e o conteúdo de uma nota selecionada.
 
-### b) Ao Clicar no Botão "Encerrar"
+## Instalação
+Para executar este projeto, siga os passos abaixo:
 
-```
-2024-10-16 10:17:08.491 19198-19198 MainActivity            ao.co.isptec.aplm.simpleactivity     I  onPause chamado
-2024-10-16 10:17:12.626 19198-19198 VRI[MainActivity]       ao.co.isptec.aplm.simpleactivity     D  visibilityChanged oldVisibility=true newVisibility=false
-2024-10-16 10:17:13.487 19198-19198 MainActivity            ao.co.isptec.aplm.simpleactivity     I  onStop chamado
-2024-10-16 10:17:13.576 19198-19198 MainActivity            ao.co.isptec.aplm.simpleactivity     I  onDestroy chamado
-```
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seuusuario/nome-do-repositorio.git
+   ```
+2. Abra o projeto no Android Studio.
+3. Conecte um dispositivo Android ou inicie um emulador.
+4. Execute o aplicativo a partir do Android Studio.
 
-Ao clicar em "Encerrar", a aplicação é pausada, parada e, por fim, o processo que a executa é destruído.
+## Uso
+1. Ao abrir o aplicativo, você verá a lista de notas (inicialmente vazia).
+2. Clique no botão "New Note" para criar uma nova nota.
+3. Insira o título e o conteúdo da nota e pressione "OK" para salvá-la ou "Cancel" para descartá-la.
+4. Clique em uma nota da lista para visualizar seu conteúdo.
 
-### c) Ao Clicar no Botão "HOME"
+## Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-A aplicação é pausada e parada, mas o processo não é destruído, permanecendo em segundo plano.
+## Licença
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-### d) Ao Usar o Overview
-
-A aplicação é reiniciada, chamando os métodos `onRestart`, `onStart`, e `onResume` em sequência.
-
-## Interpretação da Saída Produzida pela Aplicação
-
-O ciclo de vida das atividades é gerenciado automaticamente pelo sistema Android. O `StatusTracker` registra o estado atual de cada atividade, e as mudanças são exibidas na interface gráfica.
-
-### Navegação Entre as Atividades
-
-1. **Início da Atividade**  
-   Ao iniciar a aplicação com `ActivityA`, os métodos `onCreate`, `onStart` e `onResume` são chamados, atualizando o estado para `created`, `started` e `resumed`, respectivamente.
-
-2. **Navegação para Outra Atividade**  
-   Ao navegar de `ActivityA` para `ActivityB`, `ActivityA` chama `onPause` e possivelmente `onStop`. `ActivityB` passa por `onCreate`, `onStart` e `onResume`.
-
-3. **Navegação para uma Atividade de Diálogo**  
-   Quando `DialogActivity` é aberta, a atividade anterior chama `onPause`, mas não `onStop`, pois o diálogo não ocupa a tela inteira. Ao fechar o diálogo, o método `onResume` é chamado.
-
-4. **Fechamento de uma Atividade**  
-   Ao fechar uma atividade, `onDestroy` é chamado, e o estado é atualizado para `destroyed`.
-
-## Comportamento Esperado
-
-- **Transições Suaves**: O sistema Android gerencia automaticamente os métodos do ciclo de vida durante a navegação.
-- **Logs de Ciclo de Vida**: O `StatusTracker` e `Utils.printStatus()` registram os eventos do ciclo de vida das atividades.
-- **Diálogos**: Quando `DialogActivity` é aberta, a atividade subjacente entra em `onPause`, mas não em `onStop`.
-
-## Wireframe das Atividades
-
-Abaixo está um wireframe representando as transições entre as atividades na aplicação.
-
-```
-+-------------+        +-------------+        +-------------+
-|  ActivityA  | -----> |  ActivityB  | -----> |  ActivityC  |
-+-------------+        +-------------+        +-------------+
-       |                     |                      |
-       |                     |                      |
-       v                     v                      v
-+-------------+        +-------------+        +-------------+
-| DialogActivity |<----| DialogActivity |<----| DialogActivity |
-+-------------+        +-------------+        +-------------+
-```
-
-### Legenda
-
-- As setas representam as transições ao iniciar outra atividade.
-- O diálogo pode ser aberto a partir de qualquer atividade principal.
-- As setas duplas indicam que o usuário pode retornar à atividade anterior ao fechar o diálogo.
-
----
-
-Esse README fornece uma visão clara e detalhada sobre o comportamento do ciclo de vida das atividades no projeto, facilitando o entendimento e uso para desenvolvedores interessados no funcionamento das atividades no Android.
+## Contato
+Para mais informações, entre em contato através do e-mail: antonewtonquima@gmail.com
