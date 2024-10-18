@@ -26,7 +26,7 @@ Para executar este projeto, siga os passos abaixo:
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seuusuario/nome-do-repositorio.git
+   git clone https://github.com/AntonewtonQ/notepad_lab2_aplm.git
    ```
 2. Abra o projeto no Android Studio.
 3. Conecte um dispositivo Android ou inicie um emulador.
