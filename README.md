@@ -1,6 +1,3 @@
-Aqui está um modelo de README que você pode usar para o seu projeto de bloco de notas simples no GitHub. Sinta-se à vontade para personalizá-lo conforme necessário.
-
-
 # Bloco de Notas Simples
 
 ## Descrição
